@@ -52,7 +52,6 @@ public class Solution {
      *
      * 斐波那契数列
      *
-     *
      * @param target    目标阶数
      * @return          跳法
      */
