@@ -39,10 +39,10 @@ public class Solution {
         numbers[j] = temp;
     }
 
+
     @Test
     public void test() {
-       int[] numbers = {114, 1, 33};
-
+        int[] numbers = {114, 1, 33};
         String s = printMinNumber(numbers);
         System.out.println(s);
     }
