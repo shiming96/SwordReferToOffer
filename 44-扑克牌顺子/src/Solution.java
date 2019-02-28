@@ -42,6 +42,5 @@ public class Solution {
         if(numberZero >= numberNeed)
             return true;
         return false;
-
     }
 }
