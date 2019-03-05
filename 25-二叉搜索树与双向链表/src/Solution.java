@@ -48,9 +48,10 @@ public class Solution {
             return;
         if(root.left != null)
             buildArrayList(root.left, nodeList);
+        if(root != null)
+            nodeList.add(root);
         if(root.right != null)
             buildArrayList(root.right, nodeList);
-        nodeList.add(root);
     }
 
 }
