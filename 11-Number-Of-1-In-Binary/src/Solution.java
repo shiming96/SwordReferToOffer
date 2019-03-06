@@ -11,27 +11,35 @@ import org.junit.Test;
  * 1100 - 1 = 1011
  * 1100 & 1011 = 1000
  *
- * 把一个整数减去1，再和原数做运算， 会把改整数最右边一个1变成0
+ * 把一个整数减去1，再和原数做运算， 会把该整数最右边一个1变成0
  *
  * 一个整数的二进制有多少个1， 就可以做多少次这样的运算
  */
 public class Solution {
 
-    public int Num1InBinary(int num) {
+/*    public int NumberOf1(int n) {
 
         int count = 0;
 
-        while(num != 0) {
-            num = (num - 1) & num;
+        while(n != 0) {
+            n = (n - 1) & n;
             count++;
+        }
+
+        return count;
+    }*/
+
+    //无符号右移处理负数问题
+    public int NumberOf1(int n) {
+        int count = 0;
+
+        while( n != 0) {
+            count += n & 1;
+            n >>>= 1;
         }
 
         return count;
     }
 
-    @Test
-    public void test() {
-        System.out.println(Num1InBinary(66666));
-    }
 
 }

@@ -16,12 +16,12 @@
  */
 public class Solution {
 
-    private static String replaceSpace(String str) {
+    /*public String replaceSpace(StringBuffer str) {
+        String str1 = str.toString();
+        if(str1.equals(""))
+            return str1;
 
-        if(str.equals(""))
-            return str;
-
-        char[] strArray = str.toCharArray();
+        char[] strArray = str1.toCharArray();
         int lengthSpace = 0;
 
         for (char c : strArray) {
@@ -47,11 +47,25 @@ public class Solution {
             }
         }
         return new String(newStr);
+    }*/
+
+    public String replaceSpace(StringBuffer str) {
+
+        String s = str.toString();
+        if("".equals(s))
+            return s;
+
+        char[] chars = s.toCharArray();
+
+        StringBuilder res = new StringBuilder();
+        for (char aChar : chars) {
+            if(aChar == ' ')
+                res.append("%20");
+            else
+                res.append(aChar);
+        }
+
+        return res.toString();
     }
 
-    public static void main(String[] args) {
-        String str = "We are happy, and you are happy?";
-
-        System.out.println(replaceSpace(str));
-    }
 }

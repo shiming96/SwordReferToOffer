@@ -1,15 +1,20 @@
-/**
- * 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
- */
 
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
 /**
+ * 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+ */
+
+/**
  * 剑指offer的思路，递归的思路，
  * 只要链表不为空，一直往后进行遍历，然后直到到达链表的末尾，就开始用数组保存下来结果。
+ *
+ * 1.递归
+ *
+ * 2.利用栈先进后出的特性
+ *
  */
 
 /*
@@ -41,14 +46,6 @@ public class Solution {
 
     }
 
-    @Test
-    public void test() {
-        ListNode listNode = new ListNode(1);
-        listNode.next = new ListNode(3);
-        listNode.next.next = new ListNode(22);
-        listNode.next.next.next = new ListNode(9);
-        System.out.println(printListFromTailToHead(listNode));
-    }
 }
 */
 
@@ -71,6 +68,10 @@ public class Solution {
 
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> arrayList = new ArrayList<>();
+
+        if(listNode == null)
+            return  arrayList;
+
         while(listNode != null) {
             stack.push(listNode.val);
             listNode = listNode.next;
@@ -81,14 +82,4 @@ public class Solution {
 
         return arrayList;
     }
-
-    @Test
-    public void test() {
-        ListNode listNode = new ListNode(1);
-        listNode.next = new ListNode(3);
-        listNode.next.next = new ListNode(22);
-        listNode.next.next.next = new ListNode(9);
-        System.out.println(printListFromTailToHead(listNode));
-    }
-
 }

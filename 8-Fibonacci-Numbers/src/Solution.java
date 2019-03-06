@@ -25,7 +25,7 @@ import org.junit.Test;
 
 /*public class Solution {
 
-    public int findN(int n) {
+    public int Fibonacci(int n) {
         return fibonacci(n);
 
     }
@@ -36,19 +36,15 @@ import org.junit.Test;
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    @Test
-    public void test() {
-        System.out.println(findN(1));
-    }
 }*/
 
 public class Solution {
 
-    public long fibonacci(long n) {
+    public int Fibonacci(int n) {
 
-        long a = 0;
-        long b = 1;
-        long sum = a + b;
+        int a = 0;
+        int b = 1;
+        int sum = a + b;
 
         if(n == 0)
             return a;
@@ -64,12 +60,5 @@ public class Solution {
             n--;
         }
         return sum;
-    }
-
-    @Test
-    public void test() {
-        for (int i = 0; i < 39; i++) {
-            System.out.println(fibonacci(i));
-        }
     }
 }

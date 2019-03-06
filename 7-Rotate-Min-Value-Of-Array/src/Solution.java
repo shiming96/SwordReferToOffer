@@ -5,8 +5,6 @@
  * NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
  */
 
-import org.junit.Test;
-
 /**
  * 根据题意说明是一个递增数组的旋转，所以如题所示【3,4,5】，【1,2】还是局部递增的，在这种数组中查找，一般选择二分的方法；基本模型有了，下面试着分析：
  * 1.先取出中间的数值，和最后一个比较5>2 说明mid之前的某些部分旋转到了后面，所以下次寻找 start = mid+1 开始；
@@ -36,13 +34,5 @@ public class Solution {
                 start++;
         }
         return arr[end];
-    }
-
-    @Test
-    public void test() {
-        int[] arr = {3, 4, 5, 1, 2};
-        int[] arr1 = {2, 2, 2, 2, 1, 2};
-        System.out.println(minNumberInRotateArray(arr));
-        System.out.println(minNumberInRotateArray(arr1));
     }
 }

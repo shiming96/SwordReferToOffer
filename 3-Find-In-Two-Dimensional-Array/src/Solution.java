@@ -8,7 +8,7 @@
  */
 public class Solution {
 
-    private static boolean find(int target, int[][] array) {
+    public boolean Find(int target, int [][] array) {
 
         if(array.length == 0 || array[0].length == 0)
             return false;
@@ -27,14 +27,6 @@ public class Solution {
                 return true;
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-
-        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {8, 10, 22}};
-
-        System.out.println(find(7, arr));
-
     }
 
 }

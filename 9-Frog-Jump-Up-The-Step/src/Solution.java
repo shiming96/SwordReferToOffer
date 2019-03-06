@@ -32,12 +32,6 @@ public class Solution {
         return sum;
     }
 
-    @Test
-    public void test() {
-        int i = JumpFloor(4);
-        System.out.println(i);
-    }
-
     /**
      * 一级台阶,有f(1)种跳法
      * 二级台阶,有f(2)种跳法
@@ -55,6 +49,7 @@ public class Solution {
      * @param target    目标阶数
      * @return          跳法
      */
+    //效率低
     public int JumpFloor2(int target) {
         if(target <= 0)
             return -1;
@@ -62,11 +57,5 @@ public class Solution {
             return target;
         else
             return JumpFloor2(target - 1) + JumpFloor2( target - 2);
-    }
-
-    @Test
-    public void test1() {
-        int i = JumpFloor2(4);
-        System.out.println(i);
     }
 }

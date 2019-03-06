@@ -2,8 +2,6 @@
  * 用两个栈实现队列
  */
 
-import org.junit.Test;
-
 import java.util.Stack;
 
 /**
@@ -30,17 +28,5 @@ public class Solution {
         if(stack2.isEmpty())
             return -1;
         return stack2.pop();
-    }
-
-    @Test
-    public void test() {
-        push(1);
-        push(2);
-        push(3);
-        push(4);
-        System.out.println(pop());
-        System.out.println(pop());
-        System.out.println(pop());
-        System.out.println(pop());
     }
 }

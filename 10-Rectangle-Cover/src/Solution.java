@@ -4,25 +4,39 @@
  * 总共有多少种方法？
  */
 
-import org.junit.Test;
-
 /**
  * 斐波那契数列
  */
 public class Solution {
 
-    public int rectangleCover(int target) {
-        if(target <= 0)
+    public int RectCover(int target) {
+        if(target == 1)
             return 1;
+        if(target == 2)
+            return 2;
+
+        int a = 1;
+        int b = 2;
+        int sum = 0;
+        for(int i = 3; i <= target; i++) {
+            sum = a + b;
+            a = b;
+            b = sum;
+        }
+
+        return sum;
+    }
+
+    /**
+     * 递归性能差
+     */
+    /*public int RectCover(int target) {
+        if(target <= 0)
+            return 0;
         else if(target == 1 || target == 2)
             return target;
         else
-            return rectangleCover(target -1) + rectangleCover( target - 2);
-    }
+            return RectCover(target -1) + RectCover( target - 2);
+    }*/
 
-    @Test
-    public void test() {
-        int i = rectangleCover(4);
-        System.out.println(i);
-    }
 }
