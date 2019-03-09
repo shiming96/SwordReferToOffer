@@ -1,6 +1,4 @@
-import org.junit.Test;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeSet;
 
 /**
@@ -13,10 +11,10 @@ import java.util.TreeSet;
 
 public class Solution {
 
-    private List<String> result = new ArrayList<>();
+    private ArrayList<String> result = new ArrayList<>();
     private TreeSet<String> set = new TreeSet<>();//使用TreeSet保证有序和无重复
 
-    public List<String> Permutation(String str) {
+    public ArrayList<String> Permutation(String str) {
         char[] strArray = str.toCharArray();
         Permutation(strArray, 0);
         while(!set.isEmpty())
@@ -62,6 +60,12 @@ public class Solution {
             //           /      \
             //         c|b|a   c|a|b
 
+            //第二个swap用以使得字符数组的顺序回到进入递归前的状态，
+            //这样才不会影响外部的遍历顺序。因为在第一次交换后进入递归运算的时候，
+            //字符数组的顺序改变了，例如“abc”， i = 0时对应‘a’，j = 1时对应 'b'，
+            //进行一次交换，此时的字符数组的顺序为 "bac"，从递归返回时，
+            //顺序依然是“bac”，则进行第二次交换使得 “bac” -> “abc”，
+            //这样在后续才可以进行'a'与'c'的交换，不会落下某一种情况。
 
             for (int i = index; i < strArray.length; i++) {
                 swap(strArray, index, i);
@@ -78,12 +82,4 @@ public class Solution {
         strArray[i] = strArray[j];
         strArray[j] = temp;
     }
-
-
-    @Test
-    public void test() {
-        List<String> list = Permutation("abc");
-        list.forEach(System.out::println);
-    }
-
 }

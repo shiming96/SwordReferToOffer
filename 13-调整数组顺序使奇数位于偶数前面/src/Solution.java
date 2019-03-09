@@ -4,8 +4,6 @@
  * 并保证奇数和奇数，偶数和偶数之间的相对位置不变。
  */
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,9 @@ import java.util.List;
 
 public class Solution {
 
-    public int[] reOrderArray(int[] arr) {
+
+    //空间换时间  开辟两个数组换取O(n)的时间复杂度
+    /*public int[] reOrderArray(int[] arr) {
 
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
@@ -35,16 +35,22 @@ public class Solution {
             arr[i + list2.size()] = list1.get(i);
 
         return arr;
-    }
+    }*/
 
-    @Test
-    public void test() {
-
-        int[] arr = {1, 2, 3, 4, 5, 4, 32, 1, 4, 23, 1, 312};
-        int[] newArr = reOrderArray(arr);
-
-        for (int i : newArr) {
-            System.out.println(i);
+    //时间换空间  嵌套循环O(n^2)复杂度，不用单独开辟空间
+    public int[] reOrderArray(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i] % 2 == 1) {
+                for (int j = i; j > 0; j--) {
+                    if(arr[j - 1] % 2 == 0) {
+                        int t = arr[j];
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = t;
+                    }
+                }
+            }
         }
+
+        return arr;
     }
 }

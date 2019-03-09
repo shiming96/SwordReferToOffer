@@ -9,7 +9,6 @@
  * 1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
  */
 
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +26,8 @@ import java.util.List;
  */
 public class Solution {
 
-    public List<Integer> printMatrix(int[][] matrix) {
-        List<Integer> resultList = new ArrayList<>();
+    public ArrayList<Integer> printMatrix(int [][] matrix) {
+        ArrayList<Integer> resultList = new ArrayList<>();
 
         int cols = matrix[0].length;
         int rows = matrix.length;
@@ -71,13 +70,4 @@ public class Solution {
         return resultList;
     }
 
-    @Test
-    public void test() {
-        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
-
-        List<Integer> integers = printMatrix(matrix);
-        for (Integer integer : integers) {
-            System.out.print(integer + " ");
-        }
-    }
 }

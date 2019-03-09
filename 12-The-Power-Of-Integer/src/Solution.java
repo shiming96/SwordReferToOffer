@@ -2,7 +2,6 @@
  * 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
  */
 
-import org.junit.Test;
 
 /**
  * 就是穷举，把所有可能穷举出来，然后对每一种情况处理。
@@ -10,14 +9,14 @@ import org.junit.Test;
 
 public class Solution {
 
-    public double Power(double base, int exponent) {
+    /*public double Power(double base, int exponent) {
 
         //指数为0
         if (exponent == 0) {
             //底数为0
             if (equalZero(base))
                 return 0;
-                //底数不为0 除0之外的任何数的0次方都是1
+            //底数不为0 除0之外的任何数的0次方都是1
             else
                 return 1;
         } else if (exponent > 0) {
@@ -53,11 +52,20 @@ public class Solution {
         for (int i = 0; i < exponent; i++)
             result *= base;
         return result;
-    }
+    }*/
 
-    @Test
-    public void test() {
-        System.out.println(Power(0.00001, -3));
-    }
+    //简单快速幂算法
+    public double Power(double base, int exponent) {
+        long p = Math.abs(exponent);
+        double r = 1.0;
+        while(p != 0) {
+            if((p & 1) == 1)
+                r *= base;
+            base *= base;
+            p >>= 1;
+        }
 
+        return exponent < 0 ? 1 / r : r;
+
+    }
 }

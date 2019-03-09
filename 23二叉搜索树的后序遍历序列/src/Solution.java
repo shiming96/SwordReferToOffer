@@ -22,7 +22,7 @@
  */
 public class Solution {
 
-    public boolean VerifySequenceOfBST(int[] sequence) {
+    public boolean VerifySquenceOfBST(int[] sequence) {
         if(sequence.length == 0)
             return false;
         return verify(sequence, 0, sequence.length - 1);

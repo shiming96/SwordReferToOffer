@@ -23,33 +23,50 @@ public class Solution {
         }
     }
 
-    public ListNode mergeList(ListNode list1, ListNode list2) {
+    //非递归
+    /*public ListNode Merge(ListNode list1, ListNode list2) {
 
         ListNode resultList = new ListNode(0);
-        ListNode tempHead = resultList;
+        ListNode dummy = resultList;
 
         while( list1 != null && list2 != null) {
-
             if(list1.val < list2.val) {
-                tempHead.next = list1;
+                dummy.next = list1;
                 list1 = list1.next;
             } else {
-                tempHead.next = list2;
+                dummy.next = list2;
                 list2 = list2.next;
             }
+            dummy = dummy.next;
         }
-        tempHead = tempHead.next;
 
         if(list1 == null)
-            tempHead.next = list2;
+            dummy.next = list2;
         else
-            tempHead.next = list1;
+            dummy.next = list1;
 
         return resultList.next;
 
+    }*/
+
+
+    public ListNode Merge(ListNode list1, ListNode list2) {
+
+        if(list1 == null)
+            return list2;
+
+        if(list2 == null)
+            return list1;
+
+        if(list1.val <= list2.val) {
+            list1.next = Merge(list1.next, list2);
+            return list1;
+        }
+        else {
+            list2.next = Merge(list1, list2.next);
+            return list2;
+        }
+
     }
-
-
-
 
 }

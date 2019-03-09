@@ -24,7 +24,7 @@ public class Solution {
         }
     }
 
-    public ListNode reverseList(ListNode head) {
+    public ListNode ReverseList(ListNode head) {
         if(head == null || head.next == null)
             return head;
 
@@ -42,25 +42,5 @@ public class Solution {
         }
         head = pre;
         return head;
-    }
-
-    @Test
-    public void test() {
-        ListNode one = new ListNode(1);
-        ListNode two = new ListNode(2);
-        one.next = two;
-        ListNode three = new ListNode(3);
-        two.next = three;
-        ListNode four = new ListNode(4);
-        three.next = four;
-        ListNode five = new ListNode(5);
-        four.next = five;
-
-        ListNode head = reverseList(one);
-        System.out.print(head);
-        System.out.print(head.next);
-        System.out.print(head.next.next);
-        System.out.print(head.next.next.next);
-        System.out.print(head.next.next.next.next);
     }
 }

@@ -15,32 +15,33 @@ import java.util.Stack;
  * 栈入2，辅助栈栈顶是3比2大所以入2，每次都是把栈顶与入栈的值比较，入那个最小的，这样栈顶一直最小。
  */
 public class Solution {
-    Stack<Integer> stack1 = new Stack<>();
-    Stack<Integer> stack2 = new Stack<>();
-
+    Stack<Integer> mainStack = new Stack<>();
+    Stack<Integer> assistStack = new Stack<>();
+    
     public void push(int node) {
-        stack1.push(node);
-        if(stack2.empty()) {
-            stack2.push(node);
+        if(assistStack.isEmpty()) {
+            assistStack.push(node);
         } else {
-            if( node <= stack2.peek())
-                stack2.push(node);
-            else
-                stack2.push(stack2.peek());
+            int num = assistStack.peek();
+            if(num <= node)
+                assistStack.push(num);
+            else {
+                assistStack.push(node);
+            }
         }
+        mainStack.push(node);
     }
-
+    
     public void pop() {
-        stack2.pop();
-        stack1.pop();
+        mainStack.pop();
+        assistStack.pop();
     }
-
-    public int top()
-    {
-        return stack1.peek();
+    
+    public int top() {
+        return mainStack.peek();
     }
-
+    
     public int min() {
-        return stack2.peek();//栈2是辅助栈，每次都是最小值
+        return assistStack.peek();
     }
 }

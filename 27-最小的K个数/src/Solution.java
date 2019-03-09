@@ -16,29 +16,28 @@ import java.util.PriorityQueue;
  */
 
 public class Solution {
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> list = new ArrayList<>();
 
-    public List<Integer> getLeastNumbers_Solution(int[] input, int k) {
-
-        List<Integer> resultList = new ArrayList<>();
-
+        if( k > input.length || k == 0)
+            return list;
+        
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2.compareTo(o1));
-
-        for (int i = 0; i < input.length; i++) {
-            if(i < k)
+        
+        for(int i = 0; i < input.length; i++) {
+            if(i < k) {
                 maxHeap.add(input[i]);
-            else {
+            } else {
                 if(maxHeap.peek() > input[i]) {
                     maxHeap.poll();
                     maxHeap.add(input[i]);
                 }
             }
         }
-
-        while(!maxHeap.isEmpty())
-            resultList.add(maxHeap.poll());
-
-        return resultList;
-
+        while(!maxHeap.isEmpty()) {
+            list.add(maxHeap.poll());
+        }
+        return list;
+        
     }
-
 }

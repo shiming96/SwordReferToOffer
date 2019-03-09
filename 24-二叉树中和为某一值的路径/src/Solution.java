@@ -9,41 +9,39 @@ import java.util.List;
  */
 
 public class Solution {
-
+    
     private class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-
+        int val = 0;
+        TreeNode left = null;
+        TreeNode right = null;
+    
         public TreeNode(int val) {
             this.val = val;
+    
         }
+    
     }
-    List<ArrayList<Integer>> resultList = new ArrayList<>();
 
-    public void findPath(TreeNode root, int target) {
-
+    private ArrayList<ArrayList<Integer>> ret = new ArrayList<>();
+    
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
         ArrayList<Integer> list = new ArrayList<>();
         findPath(root, target, 0, list);
-
+        return ret;
     }
-
+    
     private void findPath(TreeNode root, int target, int sum, ArrayList<Integer> list) {
-
         if(root == null)
             return;
         sum += root.val;
         list.add(root.val);
-        if( sum == target && root.left == null && root.right == null) {
-            resultList.add(new ArrayList<>(list));
+        if(sum == target && root.left == null && root.right == null) {
+            ret.add(new ArrayList(list));
             list.remove(list.size() - 1);//找到以后还要接着找, 所以先把当前最后的叶子节点删除
             return;
         }
         findPath(root.left, target, sum, list);
         findPath(root.right, target, sum, list);
-        list.remove(list.size() - 1 );//这里左右子树都找完了，回到了找完的左右子树的父节点
+        list.remove(list.size() - 1);//这里左右子树都找完了，回到了找完的左右子树的父节点
         //由于父节点的左右子树找完了，所以父节点这里也没有用了，把父节点删除
     }
-
-
-}

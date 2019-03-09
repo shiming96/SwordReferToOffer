@@ -2,8 +2,6 @@
  * 输入一个链表，输出该链表中倒数第k个结点。
  */
 
-import org.junit.Test;
-
 /**
  * 就是快慢指针，快指针先走k-1步，然后快慢指针一起走，
  * 当快指针走到末尾，那么慢指针就到了倒数第K个节点了，可以自己举个例子。
@@ -29,7 +27,7 @@ public class Solution {
             tempHead = tempHead.next;
         }
 
-        if( k > length || k < 0)
+        if( k > length || k <= 0)
             return null;
 
         ListNode before = head;
@@ -45,24 +43,4 @@ public class Solution {
 
         return after;
     }
-
-
-    @Test
-    public void test() {
-
-        ListNode one = new ListNode(1);
-        ListNode two = new ListNode(2);
-        one.next = two;
-        ListNode three = new ListNode(3);
-        two.next = three;
-        ListNode four = new ListNode(4);
-        three.next = four;
-        ListNode five = new ListNode(5);
-        four.next = five;
-
-        ListNode result = FindKthToTail(one, 3);
-        System.out.println(result.val);
-    }
-
-
 }

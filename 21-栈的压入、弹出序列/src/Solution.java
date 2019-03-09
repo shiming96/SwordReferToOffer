@@ -6,8 +6,6 @@
  * 但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）
  */
 
-import org.junit.Test;
-
 import java.util.Stack;
 
 /**
@@ -44,13 +42,32 @@ public class Solution {
 
         return true;
 
-    }
 
-    @Test
-    public void test() {
-        int[] pushA = {1, 2, 3, 4, 5};
-        int[] popA = {4, 5, 3, 2, 1};
+        // public boolean IsPopOrder(int [] pushA,int [] popA) {
+        //     Stack<Integer> stack = new Stack<>();
+            
+        //     if(pushA.length != popA.length)
+        //         return false;
+        //     int i = 0;
+        //     int index = 1;
+        //     stack.push(pushA[0]);
+        //     int len = popA.length - 1;
+        //     while(i <= len) {
+        //         if(stack.peek() != popA[i]) {
+        //             //先判断，再++
+        //             if(index < pushA.length) {
+        //                 stack.push(pushA[index++]);
+        //             } else {
+        //                 return false;
+        //             }
+        //         } else {
+        //             stack.pop();
+        //             i++;
+        //         }
+        //     }
+        //     return true;
+        // }
 
-        System.out.println(IsPopOrder(pushA, popA));
+
     }
 }

@@ -27,18 +27,24 @@ public class Solution {
                 //以这个节点为起点判断是否包含Tree2
                 result = doHasSubtree(root1, root2);
             }
+
             //如果找不到，那么就再去root的左儿子当作起点，去判断是否包含Tree2
             if(!result) {
                 result = HasSubtree(root1.left, root2);
             }
             //如果还找不到，那么就再去root的右儿子当作起点，去判断是否包含Tree2
             if(!result) {
-                result = HasSubtree(root2.right, root2);
+                result = HasSubtree(root1.right, root2);
             }
         }
         return result;
     }
 
+
+    //其中需要注意的是：
+    //1. 测试用例如果pRoot2为空的话，返回的false而不是我们认为的空树应该是所有树的子树
+    //2. 再判断是否子树的过程中，应该先判断pRoot2是否为空，为空则表明子树的所有节点都比较完了，应该是子树返回True
+    //3. 要养成一个习惯，对任何一个树节点进行访问时，一定要提前检测该节点是否为空
     private boolean doHasSubtree(TreeNode root1, TreeNode root2) {
 
         if(root2 == null)
@@ -49,4 +55,6 @@ public class Solution {
             return false;
         return doHasSubtree(root1.left, root2.left) && doHasSubtree(root1.right, root2.right);
     }
+
+
 }
