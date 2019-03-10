@@ -102,13 +102,13 @@ public class Solution {
             min = Min(uglyNumbers[multiply2] * 2, uglyNumbers[multiply3] * 3, uglyNumbers[multiply5] * 5);
             uglyNumbers[nextUglyIndex] = min;
 
-            while(uglyNumbers[multiply2] * 2 < uglyNumbers[nextUglyIndex]) {
+            while(uglyNumbers[multiply2] * 2 <= uglyNumbers[nextUglyIndex]) {
                 multiply2++;
             }
-            while(uglyNumbers[multiply3] * 3 < uglyNumbers[nextUglyIndex]) {
+            while(uglyNumbers[multiply3] * 3 <= uglyNumbers[nextUglyIndex]) {
                 multiply3++;
             }
-            while(uglyNumbers[multiply5] * 5 < uglyNumbers[nextUglyIndex]) {
+            while(uglyNumbers[multiply5] * 5 <= uglyNumbers[nextUglyIndex]) {
                 multiply5++;
             }
 

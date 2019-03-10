@@ -15,7 +15,7 @@ public class Solution {
         int count = 0;
         int base = 1;
         int round = n;
-
+        //循环次数为n的位数，时间复杂度O(logn)
         while(round > 0) {
             int weight = round % 10;
             round = round / 10;
@@ -24,7 +24,7 @@ public class Solution {
                 count += (n % base) + 1;
             else if(weight > 1)
                 count += base;
-            base *= 10;
+            base *= 10; 
         }
         return count;
     }
