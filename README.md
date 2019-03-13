@@ -1,1 +1,7 @@
-This is some code I completed when I read the Sword Refer To Offer, and I reffered to the programmer jogori of WeChat public account.
+# 剑指Offer刷新记录
+
+## 概述
+
+本仓库记录了笔者在学完算法与数据结构，看完《算法4》这本书后刷剑指Offer的记录，包含了剑指Offer中所有题目及解答。
+
+由于是第一次刷题，其中大部分解答参考了牛客网剑指Offer讨论区的答案，笔者对部分题目给出了多种解答方案，在时间复杂度上有好有坏，展现出做题思路的变化过程，由差到好，而不是直接给出最优解。
