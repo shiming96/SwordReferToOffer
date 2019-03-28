@@ -20,7 +20,7 @@ public class Solution {
         int realMax = arr[0];
         int currentMax = 0; //当前最大值
         for (int i = 0; i < array.length; i++) {
-            if(currentMax + array[i] >= array[i])
+            if(currentMax > 0)
                 //当前最大值加上当前数组的数如果比数组当前这个数大，那么就累加
                 //这里得好好体会，因为前面连续和大于0，所以加上当前数连续和肯定变大！所以是可能的最大连续和
                 currentMax += array[i];
