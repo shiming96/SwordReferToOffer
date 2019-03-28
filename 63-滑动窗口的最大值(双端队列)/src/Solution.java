@@ -12,6 +12,8 @@ import java.util.LinkedList;
 /**
  * 使用一个单调非增队列，队头保存当前窗口的最大值，
  * 后面保存在窗口移动过程中导致队头失效（出窗口）后的从而晋升为窗口最大值的候选值。
+ * 
+ * O(n)
  */
 public class Solution {
 
